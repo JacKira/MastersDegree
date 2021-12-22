@@ -21,3 +21,6 @@
 UpLift:
 *https://habr.com/ru/company/ru_mts/blog/485980/
 
+* **Вычисление метрики для UpLift https://nbviewer.org/github/maks-sh/scikit-uplift/blob/master/notebooks/uplift_metrics_tutorial.ipynb**
+
+
