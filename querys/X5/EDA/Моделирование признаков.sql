@@ -145,7 +145,7 @@ DECLARE @start_dt datetime;
 SET @start_dt = (SELECT Min(t.transaction_datetime) FROM #ChkStat t);
 
 
-SELECT c.client_id
+SELECT DISTINCT s.*
 		, c.age	 
 		, (CASE WHEN cast(c.first_redeem_date as date) >= @start_dt then 1
 			   WHEN ((cast(c.first_redeem_date as date) < @start_dt)
@@ -156,10 +156,15 @@ SELECT c.client_id
 			   WHEN gender = 'M' THEN 1
 			   ELSE -1
 		  END) [Gender]
-		, s.*
-
+		
+INTO dbo.X5_DATA_SET
 FROM X5_Retail_CLIENTS c
 LEFT JOIN #ClientsStat s ON s.client_id = c.client_id
+
+
+DROP TABLE #ClientsStat
+DROP TABLE #ChkStat
+DROP TABLE #PreProcTrans
 
 
 
