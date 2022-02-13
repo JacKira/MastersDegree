@@ -34,6 +34,7 @@ SELECT DISTINCT client_id
 	   , transaction_datetime
 	   ,  [chk]
 	   , MAX(purchase_sum) [Amount]
+	   , MAX(purchase_sum) /  cast(count(product_id) as float)  [MeanItemCost]
 	   , SUM(CASE WHEN COALESCE(brand, '-') = '4da2dc345f' then 1
 					else 0
 			end) / cast(count(product_id) as float) [TOP_1_BRAND]
@@ -108,6 +109,7 @@ SET @end_dt = (SELECT MAX(t.transaction_datetime) FROM #ChkStat t);
 
 SELECT client_id
 		, CAST(AVG(s.Amount) AS float) [MeanChk]
+		, CAST(AVG(s.MeanItemCost) AS float) [MeanItemCost]
 		, COUNT(DISTINCT chk) [Chks]
 		, DATEDIFF(dd, MAX(S.transaction_datetime), @end_dt) [last_chk_ago]
 		, CAST(AVG(TOP_1_BRAND) AS float) [Mean_TOP_1_BRAND]
