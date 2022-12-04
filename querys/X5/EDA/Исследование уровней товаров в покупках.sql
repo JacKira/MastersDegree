@@ -1,4 +1,4 @@
-USE X5
+USE X5_RETAIL
 GO
 
 

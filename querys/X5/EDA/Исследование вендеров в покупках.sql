@@ -1,3 +1,4 @@
+USE X5_RETAIL
 
 SELECT  * 
 		,  ROW_NUMBER() OVER(PARTITION BY 1										  
