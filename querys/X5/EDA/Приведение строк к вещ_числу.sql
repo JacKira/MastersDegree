@@ -49,3 +49,13 @@ SELECT TOP (1000) [client_id]
 
 	ALTER TABLE [X5_RETAIL].[dbo].[X5_Retail_TRANS]
 	ALTER COLUMN [trn_sum_from_red] float;
+
+
+
+	
+  UPDATE  [X5_RETAIL].[dbo].[X5_Retail_INVENTTABLE]
+  SET [netto] = REPLACE(REPLACE([netto], ',', '.'), ' ', '')
+
+
+  ALTER TABLE [X5_RETAIL].[dbo].[X5_Retail_INVENTTABLE]
+  ALTER COLUMN  [netto] float;
