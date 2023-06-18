@@ -1,0 +1,15 @@
+pandas~=0.25.3
+scikit-learn~=0.21.3
+numpy~=1.17.4
+
+
+General Data:
+	clients.csv: general info about clients;
+	products.csv: general info about stock items;
+	purchases.csv: clients’ purchase history prior to communication.
+
+
+Task-Specific Data:
+	uplift_train.csv: a subset of clients for training. The column treatment_flg indicates if there was a communication. The column target shows if there was a purchase afterward;
+	uplift_test.csv: test subset to estimate uplift value;
+	uplift_sample_submission.csv: example submission file with predictions. Your submission should be in the same format.
